@@ -51,154 +51,207 @@ const AddData = () => {
     <>
       <div className="flex flex-col justify-center items-center">
         <p className="text-3xl mb-20">Add Data</p>
-        <div className="block p-6 rounded-lg shadow-lg bg-white w-1/3 justify-self-center">
-          <form onSubmit={handleSubmit} id="addData-form">
-          <div className="form-group mb-6">
-              <label
-                htmlFor="tableName"
-                className="form-label inline-block mb-2 text-gray-700"
-              >
-                Table Name
-              </label>
-              <input type="text" className={styles.inputField} id="tableName" />
-            </div>
-            <div className="form-group mb-6">
-              <label
-                htmlFor="category"
-                className="form-label inline-block mb-2 text-gray-700"
-              >
-                Category
-              </label>
-              <input type="text" className={styles.inputField} id="category" />
-            </div>
-            <div className="form-group mb-6">
-              <label
-                htmlFor="cloud"
-                className="form-label inline-block mb-2 text-gray-700"
-              >
-                Cloud
-              </label>
-              <input type="text" className={styles.inputField} id="cloud" />
-            </div>
-            <div className="form-group mb-6">
-              <label
-                htmlFor="title"
-                className="form-label inline-block mb-2 text-gray-700"
-              >
-                Title
-              </label>
-              <input type="text" className={styles.inputField} id="title" />
-            </div>
-            <div className="form-group mb-6">
-              <label
-                htmlFor="actionName"
-                className="form-label inline-block mb-2 text-gray-700"
-              >
-                Action Name
-              </label>
-              <input type="text" className={styles.inputField} id="actionName" />
-            </div>
-            <div className="form-group mb-6">
-              <label
-                htmlFor="environment"
-                className="form-label inline-block mb-2 text-gray-700"
-              >
-                Environment
-              </label>
-              <input type="text" className={styles.inputField} id="environment" />
-            </div>
-            <div className="form-group mb-6">
-              <label
-                htmlFor="envShort"
-                className="form-label inline-block mb-2 text-gray-700"
-              >
-                Environment Short
-              </label>
-              <input type="text" className={styles.inputField} id="envShort" />
-            </div>
-            <div className="form-group mb-6">
-              <label
-                htmlFor="description1"
-                className="form-label inline-block mb-2 text-gray-700"
-              >
-                Description 1
-              </label>
-              <input type="text" className={styles.inputField} id="description1" />
-            </div>
-            <div className="form-group mb-6">
-              <label
-                htmlFor="description2"
-                className="form-label inline-block mb-2 text-gray-700"
-              >
-                Description 2
-              </label>
-              <input type="text" className={styles.inputField} id="description2" />
-            </div>
-            <div className="form-group mb-6">
-              <label
-                htmlFor="description3"
-                className="form-label inline-block mb-2 text-gray-700"
-              >
-                Description 3
-              </label>
-              <input type="text" className={styles.inputField} id="description3" />
-            </div>
-            <div className="form-group mb-6">
-              <label
-                htmlFor="cost"
-                className="form-label inline-block mb-2 text-gray-700"
-              >
-                Cost
-              </label>
-              <input type="text" className={styles.inputField} id="cost" />
-            </div>
-            <div className="form-group mb-6">
-              <label
-                htmlFor="imageUrl"
-                className="form-label inline-block mb-2 text-gray-700"
-              >
-                Image Url
-              </label>
-              <input type="text" className={styles.inputField} id="imageUrl" />
-            </div>
-            <div className="form-group mb-6">
-              <label
-                htmlFor="type"
-                className="form-label inline-block mb-2 text-gray-700"
-              >
-                Type
-              </label>
-              <input type="text" className={styles.inputField} id="type" />
-            </div>
-            <div className="form-group mb-6">
-              <label
-                htmlFor="upcoming"
-                className="form-label inline-block mb-2 text-gray-700"
-              >
-                Upcoming
-              </label>
-              <input type="text" className={styles.inputField} id="upcoming" />
+        <div className="block p-6 rounded-lg shadow-lg bg-white justify-self-center">
+          <form onSubmit={handleSubmit} id="addData-form" className="w-full">
+            <div>
+              <>
+                <div className="form-group mb-6 flex-1" tabIndex={-1}>
+                  <label
+                    htmlFor="tableName"
+                    className="inline-block mb-2 text-gray-700"
+                  >
+                    Table Name
+                  </label>
+                  <input
+                    type="text"
+                    className={styles.inputField}
+                    id="tableName"
+                  />
+                </div>
+              </>
+              <section className="flex gap-4">
+                <div className="form-group mb-6 flex-1">
+                  <label
+                    htmlFor="category"
+                    className="form-label inline-block mb-2 text-gray-700"
+                  >
+                    Category
+                  </label>
+                  <input
+                    type="text"
+                    className={styles.inputField}
+                    id="category"
+                  />
+                </div>
+                <div className="form-group mb-6 flex-1">
+                  <label
+                    htmlFor="cloud"
+                    className="form-label inline-block mb-2 text-gray-700"
+                  >
+                    Cloud
+                  </label>
+                  <input type="text" className={styles.inputField} id="cloud" />
+                </div>
+                <div className="form-group mb-6 flex-1">
+                  <label
+                    htmlFor="title"
+                    className="form-label inline-block mb-2 text-gray-700"
+                  >
+                    Title
+                  </label>
+                  <input type="text" className={styles.inputField} id="title" />
+                </div>
+              </section>
+              <section className="flex gap-4">
+                <div className="form-group mb-6 flex-1">
+                  <label
+                    htmlFor="actionName"
+                    className="form-label inline-block mb-2 text-gray-700"
+                  >
+                    Action Name
+                  </label>
+                  <input
+                    type="text"
+                    className={styles.inputField}
+                    id="actionName"
+                  />
+                </div>
+                <div className="form-group mb-6 flex-1">
+                  <label
+                    htmlFor="environment"
+                    className="form-label inline-block mb-2 text-gray-700"
+                  >
+                    Environment
+                  </label>
+                  <input
+                    type="text"
+                    className={styles.inputField}
+                    id="environment"
+                  />
+                </div>
+                <div className="form-group mb-6 flex-1">
+                  <label
+                    htmlFor="envShort"
+                    className="form-label inline-block mb-2 text-gray-700"
+                  >
+                    Environment Short
+                  </label>
+                  <input
+                    type="text"
+                    className={styles.inputField}
+                    id="envShort"
+                  />
+                </div>
+                <div className="form-group mb-6 flex-1">
+                  <label
+                    htmlFor="description1"
+                    className="form-label inline-block mb-2 text-gray-700"
+                  >
+                    Description 1
+                  </label>
+                  <input
+                    type="text"
+                    className={styles.inputField}
+                    id="description1"
+                  />
+                </div>
+              </section>
+              <section className="flex gap-4">
+                <div className="form-group mb-6">
+                  <label
+                    htmlFor="description2"
+                    className="form-label inline-block mb-2 text-gray-700"
+                  >
+                    Description 2
+                  </label>
+                  <input
+                    type="text"
+                    className={styles.inputField}
+                    id="description2"
+                  />
+                </div>
+                <div className="form-group mb-6">
+                  <label
+                    htmlFor="description3"
+                    className="form-label inline-block mb-2 text-gray-700"
+                  >
+                    Description 3
+                  </label>
+                  <input
+                    type="text"
+                    className={styles.inputField}
+                    id="description3"
+                  />
+                </div>
+                <div className="form-group mb-6">
+                  <label
+                    htmlFor="cost"
+                    className="form-label inline-block mb-2 text-gray-700"
+                  >
+                    Cost
+                  </label>
+                  <input type="text" className={styles.inputField} id="cost" />
+                </div>
+                <div className="form-group mb-6">
+                  <label
+                    htmlFor="imageUrl"
+                    className="form-label inline-block mb-2 text-gray-700"
+                  >
+                    Image Url
+                  </label>
+                  <input
+                    type="text"
+                    className={styles.inputField}
+                    id="imageUrl"
+                  />
+                </div>
+              </section>
+              <section className="flex gap-4">
+                <div className="form-group mb-6 flex-1">
+                  <label
+                    htmlFor="type"
+                    className="form-label inline-block mb-2 text-gray-700"
+                  >
+                    Type
+                  </label>
+                  <input type="text" className={styles.inputField} id="type" />
+                </div>
+                <div className="form-group mb-6 flex-1">
+                  <label
+                    htmlFor="upcoming"
+                    className="form-label inline-block mb-2 text-gray-700"
+                  >
+                    Upcoming
+                  </label>
+                  <input
+                    type="text"
+                    className={styles.inputField}
+                    id="upcoming"
+                  />
+                </div>
+              </section>
             </div>
 
             <button
               type="submit"
               className="
-    px-6
-    py-2.5
-    bg-blue-600
-    text-white
-    font-medium
-    text-xs
-    leading-tight
-    uppercase
-    rounded
-    shadow-md
-    hover:bg-blue-700 hover:shadow-lg
-    focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0
-    active:bg-blue-800 active:shadow-lg
-    transition
-    duration-150
-    ease-in-out"
+                px-6
+                py-2.5
+                bg-blue-600
+                text-white
+                font-medium
+                text-xs
+                leading-tight
+                uppercase
+                rounded
+                shadow-md
+                hover:bg-blue-700 hover:shadow-lg
+                focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0
+                active:bg-blue-800 active:shadow-lg
+                transition
+                duration-150
+                ease-in-out
+              "
             >
               Submit
             </button>

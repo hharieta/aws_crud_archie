@@ -1,3 +1,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  .adddata {
+    background-color: #326DE6;
+  }
+  .form-container {
+    margin-bottom: 5rem;
+  }
+}
+

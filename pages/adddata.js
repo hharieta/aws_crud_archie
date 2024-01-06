@@ -34,6 +34,12 @@ const AddData = () => {
         imageUrl: event.target.imageUrl.value,
         type: event.target.type.value,
         upcoming: event.target.upcoming.value,
+        requiredValues: event.target.requiredValues.value,
+        optionalValues: event.target.optionalValues.value,
+        defaultValues: event.target.defaultValues.value,
+        mainResources: event.target.mainResources.value,
+        allResources: event.target.allResources.value,
+        dataconf: event.target.dataconf.value
       },
     };
 
@@ -49,12 +55,12 @@ const AddData = () => {
   };
   return (
     <>
-      <div className="flex flex-col justify-center items-center">
+      <div className="flex flex-col justify-center items-center adddata">
         <p className="text-3xl mb-20">Add Data</p>
-        <div className="block p-6 rounded-lg shadow-lg bg-white justify-self-center">
+        <div className="block p-6 rounded-lg shadow-lg bg-white justify-self-center form-container">
           <form onSubmit={handleSubmit} id="addData-form" className="w-full">
             <div>
-              <>
+              <section className="flex">
                 <div className="form-group mb-6 flex-1" tabIndex={-1}>
                   <label
                     htmlFor="tableName"
@@ -68,7 +74,7 @@ const AddData = () => {
                     id="tableName"
                   />
                 </div>
-              </>
+              </section>
               <section className="flex gap-4">
                 <div className="form-group mb-6 flex-1">
                   <label
@@ -142,47 +148,6 @@ const AddData = () => {
                     id="envShort"
                   />
                 </div>
-                <div className="form-group mb-6 flex-1">
-                  <label
-                    htmlFor="description1"
-                    className="form-label inline-block mb-2 text-gray-700"
-                  >
-                    Description 1
-                  </label>
-                  <input
-                    type="text"
-                    className={styles.inputField}
-                    id="description1"
-                  />
-                </div>
-              </section>
-              <section className="flex gap-4">
-                <div className="form-group mb-6">
-                  <label
-                    htmlFor="description2"
-                    className="form-label inline-block mb-2 text-gray-700"
-                  >
-                    Description 2
-                  </label>
-                  <input
-                    type="text"
-                    className={styles.inputField}
-                    id="description2"
-                  />
-                </div>
-                <div className="form-group mb-6">
-                  <label
-                    htmlFor="description3"
-                    className="form-label inline-block mb-2 text-gray-700"
-                  >
-                    Description 3
-                  </label>
-                  <input
-                    type="text"
-                    className={styles.inputField}
-                    id="description3"
-                  />
-                </div>
                 <div className="form-group mb-6">
                   <label
                     htmlFor="cost"
@@ -192,7 +157,53 @@ const AddData = () => {
                   </label>
                   <input type="text" className={styles.inputField} id="cost" />
                 </div>
-                <div className="form-group mb-6">
+              </section>
+              <section className="flex gap-4">
+                <div className="form-group mb-6 flex-1">
+                  <label
+                    htmlFor="description1"
+                    className="form-label inline-block mb-2 text-gray-700"
+                  >
+                    Description 1
+                  </label>
+                  <textarea
+                    rows={4}
+                    className={styles.inputField}
+                    id="description1"
+                    placeholder="Write a short description..."
+                  ></textarea>
+                </div>
+                <div className="form-group mb-6 flex-1">
+                  <label
+                    htmlFor="description2"
+                    className="form-label inline-block mb-2 text-gray-700"
+                  >
+                    Description 2
+                  </label>
+                  <textarea
+                    rows={4}
+                    className={styles.inputField}
+                    id="description2"
+                    placeholder="Write a short description..."
+                  />
+                </div>
+              </section>
+              <section className="flex gap-4">
+                <div className="form-group mb-6 flex-1">
+                  <label
+                    htmlFor="description3"
+                    className="form-label inline-block mb-2 text-gray-700"
+                  >
+                    Description 3
+                  </label>
+                  <textarea
+                    rows={4}
+                    className={styles.inputField}
+                    id="description3"
+                    placeholder="Write a short description..."
+                  />
+                </div>
+                <div className="form-group mb-6 flex-1">
                   <label
                     htmlFor="imageUrl"
                     className="form-label inline-block mb-2 text-gray-700"
@@ -204,19 +215,21 @@ const AddData = () => {
                     className={styles.inputField}
                     id="imageUrl"
                   />
-                </div>
-              </section>
-              <section className="flex gap-4">
-                <div className="form-group mb-6 flex-1">
+                  <section className="flex gap-4">
+                  <div className="form-group mb-6">
                   <label
                     htmlFor="type"
                     className="form-label inline-block mb-2 text-gray-700"
                   >
                     Type
                   </label>
-                  <input type="text" className={styles.inputField} id="type" />
+                  <input
+                    type="text"
+                    className={styles.inputField}
+                    id="type"
+                  />
                 </div>
-                <div className="form-group mb-6 flex-1">
+                <div className="form-group mb-6">
                   <label
                     htmlFor="upcoming"
                     className="form-label inline-block mb-2 text-gray-700"
@@ -227,6 +240,89 @@ const AddData = () => {
                     type="text"
                     className={styles.inputField}
                     id="upcoming"
+                  />
+                </div>
+                </section>
+                </div>
+              </section>
+              <section className="flex gap-4">
+                <div className="form-group mb-6 flex-1">
+                  <label
+                    htmlFor="requiredValues"
+                    className="form-label inline-block mb-2 text-gray-700"
+                  >
+                    Required Values
+                  </label>
+                  <input type="text" className={styles.inputField} id="requiredValues" />
+                </div>
+                <div className="form-group mb-6 flex-1">
+                  <label
+                    htmlFor="optionalValues"
+                    className="form-label inline-block mb-2 text-gray-700"
+                  >
+                    Optional Values
+                  </label>
+                  <input
+                    type="text"
+                    className={styles.inputField}
+                    id="optionalValues"
+                  />
+                </div>
+                <div className="form-group mb-6 flex-1">
+                  <label
+                    htmlFor="defaultValues"
+                    className="form-label inline-block mb-2 text-gray-700"
+                  >
+                    Default Values
+                  </label>
+                  <input
+                    type="text"
+                    className={styles.inputField}
+                    id="defaultValues"
+                  />
+                </div>
+              </section>
+              <section className="flex gap-4">
+              <div className="form-group mb-6 flex-1">
+                  <label
+                    htmlFor="mainResources"
+                    className="form-label inline-block mb-2 text-gray-700"
+                  >
+                    Main Resources
+                  </label>
+                  <input
+                    type="text"
+                    className={styles.inputField}
+                    id="mainResources"
+                  />
+                  <section className="flex gap-4">
+                  <div className="form-group mb-6 flex-1">
+                  <label
+                    htmlFor="allResources"
+                    className="form-label inline-block mb-2 text-gray-700"
+                  >
+                    All Resources
+                  </label>
+                  <input
+                    type="text"
+                    className={styles.inputField}
+                    id="allResources"
+                  />
+                </div>
+                </section>
+                </div>
+                <div className="form-group mb-6 flex-1">
+                  <label
+                    htmlFor="dataconf"
+                    className="form-label inline-block mb-2 text-gray-700"
+                  >
+                    Dataconf
+                  </label>
+                  <textarea
+                    rows={12}
+                    className={styles.inputField}
+                    id="dataconf"
+                    placeholder="Dataconf JSON style..."
                   />
                 </div>
               </section>

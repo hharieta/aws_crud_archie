@@ -47,7 +47,7 @@ const AddData = () => {
       const data = await ddbDocClient.send(new PutCommand(params));
       console.log("Success - item added", data);
       alert("Data Added Successfully");
-      router.push("/viewdata");
+      router.push(`/viewdata?tableName=${event.target.tableName.value}`);
       document.getElementById("addData-form").reset();
     } catch (err) {
       console.log("Error", err.stack);

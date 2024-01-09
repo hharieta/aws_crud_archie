@@ -4,6 +4,7 @@ import { ddbDocClient } from "../config/ddbDocClient.js";
 import { ScanCommand } from "@aws-sdk/lib-dynamodb";
 import { DeleteCommand } from "@aws-sdk/lib-dynamodb";
 import Link from "next/link.js";
+import { useRouter } from "next/router";
 
 const Styles = {
   tableHeadings:
@@ -14,11 +15,12 @@ const Styles = {
 const ViewData = () => {
   let data = [];
   const [tableData, setTableData] = useState([]);
+  const route = useRouter();
 
   //   scanning the dynamodb table
   const scanTable = async () => {
     try {
-      data = await ddbDocClient.send(new ScanCommand({ TableName: "Users" }));
+      data = await ddbDocClient.send(new ScanCommand({ TableName: route.query.tableName }));
       setTableData(data.Items);
       console.log("success", data.Items);
     } catch (err) {
@@ -77,16 +79,16 @@ const ViewData = () => {
                       id
                     </th>
                     <th scope="col" className={Styles.tableHeadings}>
-                      First Name
+                      Action Name
                     </th>
                     <th scope="col" className={Styles.tableHeadings}>
-                      Last Name
+                      Environment
                     </th>
                     <th scope="col" className={Styles.tableHeadings}>
-                      City
+                      Cloud
                     </th>
                     <th scope="col" className={Styles.tableHeadings}>
-                      Phone Number
+                      Cost
                     </th>
                     <th
                       scope="col"
@@ -102,10 +104,10 @@ const ViewData = () => {
                       <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
                         {item.id}
                       </td>
-                      <td className={Styles.tableData}>{item.firstName}</td>
-                      <td className={Styles.tableData}>{item.lastName}</td>
-                      <td className={Styles.tableData}>{item.city}</td>
-                      <td className={Styles.tableData}>{item.phoneNumber}</td>
+                      <td className={Styles.tableData}>{item.actionName}</td>
+                      <td className={Styles.tableData}>{item.environment}</td>
+                      <td className={Styles.tableData}>{item.cloud}</td>
+                      <td className={Styles.tableData}>{item.cost}</td>
                       <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap text-center">
                         <Link
                           href={{
@@ -113,10 +115,10 @@ const ViewData = () => {
                             query: {
                               id: item.id,
                               dateAdded: item.dateAdded,
-                              firstName: item.firstName,
-                              lastName: item.lastName,
-                              city: item.city,
-                              phoneNumber: item.phoneNumber,
+                              actionName: item.actionName,
+                              environment: item.environment,
+                              cloud: item.cloud,
+                              cost: item.cost,
                             },
                           }}
                         >

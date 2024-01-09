@@ -36,9 +36,9 @@ const AddData = () => {
         upcoming: event.target.upcoming.value,
         requiredValues: event.target.requiredValues.value,
         optionalValues: event.target.optionalValues.value,
-        defaultValues: event.target.defaultValues.value,
+        // defaultValues: event.target.defaultValues.value,
         mainResources: event.target.mainResources.value,
-        allResources: event.target.allResources.value,
+        // allResources: event.target.allResources.value,
         dataconf: event.target.dataconf.value
       },
     };
@@ -253,7 +253,7 @@ const AddData = () => {
                   >
                     Required Values
                   </label>
-                  <input type="text" className={styles.inputField} id="requiredValues" />
+                  <textarea type="text" rows={4} className={styles.inputField} id="requiredValues" />
                 </div>
                 <div className="form-group mb-6 flex-1">
                   <label
@@ -262,13 +262,14 @@ const AddData = () => {
                   >
                     Optional Values
                   </label>
-                  <input
+                  <textarea
+                    rows={4}
                     type="text"
                     className={styles.inputField}
                     id="optionalValues"
                   />
                 </div>
-                <div className="form-group mb-6 flex-1">
+                {/* <div className="form-group mb-6 flex-1">
                   <label
                     htmlFor="defaultValues"
                     className="form-label inline-block mb-2 text-gray-700"
@@ -280,7 +281,7 @@ const AddData = () => {
                     className={styles.inputField}
                     id="defaultValues"
                   />
-                </div>
+                </div> */}
               </section>
               <section className="flex gap-4">
               <div className="form-group mb-6 flex-1">
@@ -296,7 +297,7 @@ const AddData = () => {
                     id="mainResources"
                   />
                   <section className="flex gap-4">
-                  <div className="form-group mb-6 flex-1">
+                  {/* <div className="form-group mb-6 flex-1">
                   <label
                     htmlFor="allResources"
                     className="form-label inline-block mb-2 text-gray-700"
@@ -308,7 +309,7 @@ const AddData = () => {
                     className={styles.inputField}
                     id="allResources"
                   />
-                </div>
+                </div> */}
                 </section>
                 </div>
                 <div className="form-group mb-6 flex-1">

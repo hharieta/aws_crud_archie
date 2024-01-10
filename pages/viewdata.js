@@ -33,7 +33,7 @@ const ViewData = () => {
     try {
       await ddbDocClient.send(
         new DeleteCommand({
-          TableName: "Users",
+          TableName: route.query.tableName,
           Key: {
             id: primaryKeyValue,
             dateAdded: sortKeyValue,

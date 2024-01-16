@@ -9,7 +9,7 @@ import { useRouter } from "next/router";
 const Styles = {
   tableHeadings:
     "text-sm font-medium text-gray-900 h-0.5 px-6 py-4 text-left border-2",
-  tableData: "text-sm text-gray-900 h-0.5 font-light px-6 py-4 whitespace-nowrap",
+  tableData: "text-sm text-gray-900 h-0.5 font-light px-6 py-4 whitespace-nowrap overflow-hidden text-center",
   inputField:
     "form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none",
 };
@@ -135,6 +135,12 @@ const ViewData = () => {
               <table className="min-w-full">
                 <thead className="border-b">
                   <tr>
+                  <th
+                      scope="col"
+                      className="text-sm font-medium text-gray-900 px-6 py-4 text-center border-2"
+                    >
+                      Action
+                    </th>
                     <th scope="col" className={Styles.tableHeadings}>
                       id
                     </th>
@@ -192,38 +198,11 @@ const ViewData = () => {
                     <th scope="col" className={Styles.tableHeadings}>
                       Dataconfig
                     </th>
-                    <th
-                      scope="col"
-                      className="text-sm font-medium text-gray-900 px-6 py-4 text-center border-2"
-                    >
-                      Action
-                    </th>
                   </tr>
                 </thead>
                 <tbody>
                   {tableData.map((item) => (
                     <tr className="border-b" key={item.id}>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                        {item.id}
-                      </td>
-                      <td className={Styles.tableData}>{item.category}</td>
-                      <td className={Styles.tableData}>{item.solution}</td>
-                      <td className={Styles.tableData}>{item.cloud}</td>
-                      <td className={Styles.tableData}>{item.tittle}</td>
-                      <td className={Styles.tableData}>{item.actionName}</td>
-                      <td className={Styles.tableData}>{item.env}</td>
-                      <td className={Styles.tableData}>{item.envShort}</td>
-                      <td className={Styles.tableData}>{item.description}</td>
-                      <td className={Styles.tableData}>{item.description2}</td>
-                      <td className={Styles.tableData}>{item.description3}</td>
-                      <td className={Styles.tableData}>{item.cost}</td>
-                      <td className={Styles.tableData}>{item.diagram}</td>
-                      <td className={Styles.tableData}>{item.type}</td>
-                      <td className={Styles.tableData}>{item.upcoming}</td>
-                      <td className={Styles.tableData}>{item.requiredValues}</td>
-                      <td className={Styles.tableData}>{item.optionalValues}</td>
-                      <td className={Styles.tableData}>{item.mainResources}</td>
-                      <td className={Styles.tableData}>{item.dataconf}</td>
                       <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap text-center">
                         <Link
                           href={{
@@ -268,6 +247,27 @@ const ViewData = () => {
                           Delete
                         </button>
                       </td>
+                      <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                        {item.id}
+                      </td>
+                      <td className={Styles.tableData}>{item.category.slice(0,100)}</td>
+                      <td className={Styles.tableData}>{item.solution.slice(0,100)}</td>
+                      <td className={Styles.tableData}>{item.cloud.slice(0,100)}</td>
+                      <td className={Styles.tableData}>{item.tittle.slice(0,100)}</td>
+                      <td className={Styles.tableData}>{item.actionName.slice(0,100)}</td>
+                      <td className={Styles.tableData}>{item.env.slice(0,100)}</td>
+                      <td className={Styles.tableData}>{item.envShort.slice(0,100)}</td>
+                      <td className={Styles.tableData}>{item.description.slice(0,100)}</td>
+                      <td className={Styles.tableData}>{item.description2.slice(0,100)}</td>
+                      <td className={Styles.tableData}>{item.description3.slice(0,100)}</td>
+                      <td className={Styles.tableData}>{item.cost.slice(0,100)}</td>
+                      <td className={Styles.tableData}>{item.diagram.slice(0,100)}</td>
+                      <td className={Styles.tableData}>{item.type.slice(0,100)}</td>
+                      <td className={Styles.tableData}>{item.upcoming.slice(0,100)}</td>
+                      <td className={Styles.tableData}>{item.requiredValues.slice(0,100)}</td>
+                      <td className={Styles.tableData}>{item.optionalValues.slice(0,100)}</td>
+                      <td className={Styles.tableData}>{item.mainResources.slice(0,100)}</td>
+                      <td className={Styles.tableData}>{item.dataconf.slice(0,100)}</td>
                     </tr>
                   ))}
                 </tbody>

@@ -14,23 +14,58 @@ const UpdateData = () => {
   const handleSubmit = async (event) => {
     // Stop the form from submitting and refreshing the page.
     event.preventDefault();
-
+    console.log(data.tableName);
     // setting up the parameters for UpdateCommand
     const params = {
-      TableName: data.TableName,
+      TableName: data.tableName,
       Key: {
         id: Number(data.id), //primaryKey
         dateAdded: data.dateAdded, //sortKey (if any)
       },
       UpdateExpression:
-        "set firstName = :p, lastName = :r, city = :q, phoneNumber = :z, dateModified = :k",
+        "SET #category = :val1, #cloud = :val2, #solution = :val3, #tittle = :val4, #actionName = :val5, #env = :val6, #envShort = :val7, #description = :val8, #description2 = :val9, #description3 = :val10, #cost = :val11, #diagram = :val12, #type = :val13, #upcoming = :val14, #requiredValues = :val15, #optionalValues = :val16, #mainResources = :val17, #dataconf = :val18, #dateModified = :val19",
       ExpressionAttributeValues: {
-        ":p": event.target.firstName.value,
-        ":r": event.target.lastName.value,
-        ":q": event.target.city.value,
-        ":z": event.target.phoneNumber.value,
-        ":k": new Date().toLocaleString(),
+        ":val1": event.target.category.value,
+        ":val2": event.target.cloud.value,
+        ":val3": event.target.solution.value,
+        ":val4": event.target.tittle.value,
+        ":val5": event.target.actionName.value,
+        ":val6": event.target.env.value,
+        ":val7": event.target.envShort.value,
+        ":val8": event.target.description.value,
+        ":val9": event.target.description2.value,
+        ":val10": event.target.description3.value,
+        ":val11": event.target.cost.value,
+        ":val12": event.target.diagram.value,
+        ":val13": event.target.type.value,
+        ":val14": event.target.upcoming.value,
+        ":val15": event.target.requiredValues.value,
+        ":val16": event.target.optionalValues.value,
+        ":val17": event.target.mainResources.value,
+        ":val18": event.target.dataconf.value,
+        ":val19": new Date().toLocaleString(),
       },
+      ExpressionAttributeNames: {
+        "#category": "category",
+        "#cloud": "cloud",
+        "#solution": "solution",
+        "#tittle": "tittle",
+        "#actionName": "actionName",
+        "#env": "env",
+        "#envShort": "envShort",
+        "#description": "description",
+        "#description2": "description2",
+        "#description3": "description3",
+        "#cost": "cost",
+        "#diagram": "diagram",
+        "#type": "type",
+        "#upcoming": "upcoming",
+        "#requiredValues": "requiredValues",
+        "#optionalValues": "optionalValues",
+        "#mainResources": "mainResources",
+        "#dataconf": "dataconf",
+        "#dateModified": "dateModified"
+      }
     };
 
     // updating the db
@@ -46,90 +81,303 @@ const UpdateData = () => {
   
   return (
     <>
-      <div className="flex flex-col justify-center items-center h-screen">
+      <div className="flex flex-col justify-center items-center adddata">
         <p className="text-3xl mb-20">Update Data</p>
-        <div className="block p-6 rounded-lg shadow-lg bg-white w-1/3 justify-self-center">
-          <form onSubmit={handleSubmit} id="addData-form">
-            <div className="form-group mb-6">
-              <label
-                htmlFor="firstName"
-                className="form-label inline-block mb-2 text-gray-700"
-              >
-                First Name
-              </label>
-              <input
-                type="text"
-                className={styles.inputField}
-                id="firstName"
-                name="firstName"
-                defaultValue={data.firstName}
-              />
-            </div>
-            <div className="form-group mb-6">
-              <label
-                htmlFor="lastName"
-                className="form-label inline-block mb-2 text-gray-700"
-              >
-                Last Name
-              </label>
-              <input
-                type="text"
-                className={styles.inputField}
-                id="lastName"
-                name="lastName"
-                defaultValue={data.lastName}
-              />
-            </div>
-            <div className="form-group mb-6">
-              <label
-                htmlFor="exampleInputEmail1"
-                className="form-label inline-block mb-2 text-gray-700"
-              >
-                City
-              </label>
-              <input
-                type="text"
-                className={styles.inputField}
-                id="city"
-                name="city"
-                defaultValue={data.city}
-              />
-            </div>
-            <div className="form-group mb-6">
-              <label
-                htmlFor="phoneNumber"
-                className="form-label inline-block mb-2 text-gray-700"
-              >
-                Phone Number
-              </label>
-              <input
-                type="number"
-                className={styles.inputField}
-                id="phoneNumber"
-                name="phoneNumber"
-                defaultValue={data.phoneNumber}
-              />
+        <div className="block p-6 rounded-lg shadow-lg bg-white justify-self-center form-container">
+          <form onSubmit={handleSubmit} id="addData-form" className="w-full">
+            <div>
+              <section className="flex gap-4">
+                <div className="form-group mb-6 flex-initial w-32">
+                  <label
+                    htmlFor="category"
+                    className="form-label inline-block mb-2 text-gray-700"
+                  >
+                    Category
+                  </label>
+                  <input
+                    type="text"
+                    className={styles.inputField}
+                    id="category"
+                    defaultValue={data.category}
+                  />
+                </div>
+                <div className="form-group mb-6 flex-initial w-32">
+                  <label
+                    htmlFor="solution"
+                    className="form-label inline-block mb-2 text-gray-700"
+                  >
+                    Solution
+                  </label>
+                  <input 
+                    type="text" 
+                    className={styles.inputField} 
+                    id="solution" 
+                    defaultValue={data.solution} 
+                  />
+                </div>
+                <div className="form-group mb-6 flex-initial w-32">
+                  <label
+                    htmlFor="cloud"
+                    className="form-label inline-block mb-2 text-gray-700"
+                  >
+                    Cloud
+                  </label>
+                  <input 
+                    type="text" 
+                    className={styles.inputField} 
+                    id="cloud"
+                    defaultValue={data.cloud}
+                  />
+                </div>
+                <div className="form-group mb-6 flex-1">
+                  <label
+                    htmlFor="tittle"
+                    className="form-label inline-block mb-2 text-gray-700"
+                  >
+                    Title
+                  </label>
+                  <input 
+                    type="text" 
+                    className={styles.inputField} 
+                    id="tittle" 
+                    defaultValue={data.tittle}
+                    />
+                </div>
+              </section>
+              <section className="flex gap-4">
+                <div className="form-group mb-6 flex-1">
+                  <label
+                    htmlFor="actionName"
+                    className="form-label inline-block mb-2 text-gray-700"
+                  >
+                    Action Name
+                  </label>
+                  <input
+                    type="text"
+                    className={styles.inputField}
+                    id="actionName"
+                    defaultValue={data.actionName}
+                  />
+                </div>
+                <div className="form-group mb-6 flex-initial w-32">
+                  <label
+                    htmlFor="env"
+                    className="form-label inline-block mb-2 text-gray-700"
+                  >
+                    Environment
+                  </label>
+                  <input
+                    type="text"
+                    className={styles.inputField}
+                    id="env"
+                    defaultValue={data.env}
+                  />
+                </div>
+                <div className="form-group mb-6 flex-initial w-32">
+                  <label
+                    htmlFor="envShort"
+                    className="form-label inline-block mb-2 text-gray-700"
+                  >
+                    Env Short
+                  </label>
+                  <input
+                    type="text"
+                    className={styles.inputField}
+                    id="envShort"
+                    defaultValue={data.envShort}
+                  />
+                </div>
+                <div className="form-group mb-6 flex-initial w-14">
+                  <label
+                    htmlFor="cost"
+                    className="form-label inline-block mb-2 text-gray-700"
+                  >
+                    Cost
+                  </label>
+                  <input 
+                    type="text" 
+                    className={styles.inputField} 
+                    id="cost"
+                    defaultValue={data.cost}
+                    />
+                </div>
+              </section>
+              <section className="flex gap-4">
+                <div className="form-group mb-6 flex-1">
+                  <label
+                    htmlFor="description"
+                    className="form-label inline-block mb-2 text-gray-700"
+                  >
+                    Description 1
+                  </label>
+                  <textarea
+                    rows={4}
+                    className={styles.inputField}
+                    id="description"
+                    defaultValue={data.description}
+                  ></textarea>
+                </div>
+                <div className="form-group mb-6 flex-1">
+                  <label
+                    htmlFor="description2"
+                    className="form-label inline-block mb-2 text-gray-700"
+                  >
+                    Description 2
+                  </label>
+                  <textarea
+                    rows={4}
+                    className={styles.inputField}
+                    id="description2"
+                    defaultValue={data.description2}
+                  />
+                </div>
+              </section>
+              <section className="flex gap-4">
+                <div className="form-group mb-6 flex-1">
+                  <label
+                    htmlFor="description3"
+                    className="form-label inline-block mb-2 text-gray-700"
+                  >
+                    Description 3
+                  </label>
+                  <textarea
+                    rows={4}
+                    className={styles.inputField}
+                    id="description3"
+                    defaultValue={data.description3}
+                  />
+                </div>
+                <div className="form-group mb-6 flex-1">
+                  <label
+                    htmlFor="diagram"
+                    className="form-label inline-block mb-2 text-gray-700"
+                  >
+                   Diagram
+                  </label>
+                  <input
+                    type="text"
+                    className={styles.inputField}
+                    id="diagram"
+                    defaultValue={data.diagram}
+                  />
+                  <section className="flex gap-4">
+                  <div className="form-group mb-6">
+                  <label
+                    htmlFor="type"
+                    className="form-label inline-block mb-2 text-gray-700"
+                  >
+                    Type
+                  </label>
+                  <input
+                    type="text"
+                    className={styles.inputField}
+                    id="type"
+                    defaultValue={data.type}
+                  />
+                </div>
+                <div className="form-group mb-6">
+                  <label
+                    htmlFor="upcoming"
+                    className="form-label inline-block mb-2 text-gray-700"
+                  >
+                    Upcoming
+                  </label>
+                  <input
+                    type="text"
+                    className={styles.inputField}
+                    id="upcoming"
+                    defaultValue={data.upcoming}
+                  />
+                </div>
+                </section>
+                </div>
+              </section>
+              <section className="flex gap-4">
+                <div className="form-group mb-6 flex-1">
+                  <label
+                    htmlFor="requiredValues"
+                    className="form-label inline-block mb-2 text-gray-700"
+                  >
+                    Required Values
+                  </label>
+                  <textarea 
+                    type="text" 
+                    rows={4} 
+                    className={styles.inputField} 
+                    id="requiredValues" 
+                    defaultValue={data.requiredValues}
+                    />
+                </div>
+                <div className="form-group mb-6 flex-1">
+                  <label
+                    htmlFor="optionalValues"
+                    className="form-label inline-block mb-2 text-gray-700"
+                  >
+                    Optional Values
+                  </label>
+                  <textarea
+                    rows={4}
+                    type="text"
+                    className={styles.inputField}
+                    id="optionalValues"
+                    defaultValue={data.optionalValues}
+                  />
+                </div>
+              </section>
+              <section className="flex gap-4">
+              <div className="form-group mb-6 flex-1">
+                  <label
+                    htmlFor="mainResources"
+                    className="form-label inline-block mb-2 text-gray-700"
+                  >
+                    Main Resources
+                  </label>
+                  <input
+                    type="text"
+                    className={styles.inputField}
+                    id="mainResources"
+                    defaultValue={data.mainResources}
+                  />
+                  <section className="flex gap-4">
+                </section>
+                </div>
+                <div className="form-group mb-6 flex-1">
+                  <label
+                    htmlFor="dataconf"
+                    className="form-label inline-block mb-2 text-gray-700"
+                  >
+                    Dataconf
+                  </label>
+                  <textarea
+                    rows={12}
+                    className={styles.inputField}
+                    id="dataconf"
+                    defaultValue={data.dataconf}
+                  />
+                </div>
+              </section>
             </div>
 
             <button
               type="submit"
               className="
-    px-6
-    py-2.5
-    bg-blue-600
-    text-white
-    font-medium
-    text-xs
-    leading-tight
-    uppercase
-    rounded
-    shadow-md
-    hover:bg-blue-700 hover:shadow-lg
-    focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0
-    active:bg-blue-800 active:shadow-lg
-    transition
-    duration-150
-    ease-in-out"
+                px-6
+                py-2.5
+                bg-blue-600
+                text-white
+                font-medium
+                text-xs
+                leading-tight
+                uppercase
+                rounded
+                shadow-md
+                hover:bg-blue-700 hover:shadow-lg
+                focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0
+                active:bg-blue-800 active:shadow-lg
+                transition
+                duration-150
+                ease-in-out
+              "
             >
               Submit
             </button>

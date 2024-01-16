@@ -18,12 +18,13 @@ const ViewData = () => {
   let data = [];
   const [tableData, setTableData] = useState([]);
   const route = useRouter();
+  let tableName = route.query.tableName ? route.query.tableName : "archie-new-templates-sandbox"
 ;
 
   //   scanning the dynamodb table
   const scanTable = async () => {
     try {
-      data = await ddbDocClient.send(new ScanCommand({ TableName: route.query.tableName }));
+      data = await ddbDocClient.send(new ScanCommand({ TableName: tableName }));
       setTableData(data.Items);
       console.log("success", data.Items);
     } catch (err) {
@@ -33,8 +34,9 @@ const ViewData = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    tableName = event.target.tableName.value;
     try {
-      data = await ddbDocClient.send(new ScanCommand({ TableName: event.target.tableName.value}));
+      data = await ddbDocClient.send(new ScanCommand({ TableName: tableName}));
       setTableData(data.Items);
       console.log("success", data.Items);
     } catch (err) {
@@ -47,7 +49,7 @@ const ViewData = () => {
     try {
       await ddbDocClient.send(
         new DeleteCommand({
-          TableName: route.query.tableName,
+          TableName: tableName,
           Key: {
             id: primaryKeyValue,
             dateAdded: sortKeyValue,
@@ -158,7 +160,37 @@ const ViewData = () => {
                       envShort
                     </th>
                     <th scope="col" className={Styles.tableHeadings}>
-                      cost
+                      Description 1
+                    </th>
+                    <th scope="col" className={Styles.tableHeadings}>
+                      Description 2
+                    </th>
+                    <th scope="col" className={Styles.tableHeadings}>
+                      Description 3
+                    </th>
+                    <th scope="col" className={Styles.tableHeadings}>
+                      Cost
+                    </th>
+                    <th scope="col" className={Styles.tableHeadings}>
+                      Diagram
+                    </th>
+                    <th scope="col" className={Styles.tableHeadings}>
+                      Type
+                    </th>
+                    <th scope="col" className={Styles.tableHeadings}>
+                      Upcoming
+                    </th>
+                    <th scope="col" className={Styles.tableHeadings}>
+                      Required Values
+                    </th>
+                    <th scope="col" className={Styles.tableHeadings}>
+                      Optional Values
+                    </th>
+                    <th scope="col" className={Styles.tableHeadings}>
+                      Main Values
+                    </th>
+                    <th scope="col" className={Styles.tableHeadings}>
+                      Dataconfig
                     </th>
                     <th
                       scope="col"
@@ -181,12 +213,23 @@ const ViewData = () => {
                       <td className={Styles.tableData}>{item.actionName}</td>
                       <td className={Styles.tableData}>{item.env}</td>
                       <td className={Styles.tableData}>{item.envShort}</td>
+                      <td className={Styles.tableData}>{item.description}</td>
+                      <td className={Styles.tableData}>{item.description2}</td>
+                      <td className={Styles.tableData}>{item.description3}</td>
                       <td className={Styles.tableData}>{item.cost}</td>
+                      <td className={Styles.tableData}>{item.diagram}</td>
+                      <td className={Styles.tableData}>{item.type}</td>
+                      <td className={Styles.tableData}>{item.upcoming}</td>
+                      <td className={Styles.tableData}>{item.requiredValues}</td>
+                      <td className={Styles.tableData}>{item.optionalValues}</td>
+                      <td className={Styles.tableData}>{item.mainResources}</td>
+                      <td className={Styles.tableData}>{item.dataconf}</td>
                       <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap text-center">
                         <Link
                           href={{
                             pathname: "/updatedata",
                             query: {
+                              tableName: tableName,
                               id: item.id,
                               dateAdded: item.dateAdded,
                               category: item.category,
@@ -196,7 +239,17 @@ const ViewData = () => {
                               actionName: item.actionName,
                               env: item.env,
                               envShort: item.envShort,
-                              cost: item.cost,
+                              description: item.description,
+                              description2: item.description2,
+                              description3: item.description3,
+                              cost: item.cost, 
+                              diagram: item.diagram,
+                              type: item.type,
+                              upcoming: item.upcoming,
+                              requiredValues: item.requiredValues,
+                              optionalValues: item.optionalValues,
+                              mainResources: item.mainResources,
+                              dataconf: item.dataconf
                             },
                           }}
                         >

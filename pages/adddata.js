@@ -23,15 +23,16 @@ const AddData = () => {
         dateModified: "",
         category: event.target.category.value,
         cloud: event.target.cloud.value,
-        title: event.target.title.value,
+        solution: event.target.solution.value,
+        tittle: event.target.tittle.value,
         actionName: event.target.actionName.value,
-        environment: event.target.environment.value,
+        env: event.target.env.value,
         envShort: event.target.envShort.value,
-        description1: event.target.description1.value,
+        description: event.target.description.value,
         description2: event.target.description2.value,
         description3: event.target.description3.value,
         cost: event.target.cost.value,
-        imageUrl: event.target.imageUrl.value,
+        diagram: event.target.diagram.value,
         type: event.target.type.value,
         upcoming: event.target.upcoming.value,
         requiredValues: event.target.requiredValues.value,
@@ -76,7 +77,7 @@ const AddData = () => {
                 </div>
               </section>
               <section className="flex gap-4">
-                <div className="form-group mb-6 flex-1">
+                <div className="form-group mb-6 flex-initial w-32">
                   <label
                     htmlFor="category"
                     className="form-label inline-block mb-2 text-gray-700"
@@ -89,7 +90,16 @@ const AddData = () => {
                     id="category"
                   />
                 </div>
-                <div className="form-group mb-6 flex-1">
+                <div className="form-group mb-6 flex-initial w-32">
+                  <label
+                    htmlFor="solution"
+                    className="form-label inline-block mb-2 text-gray-700"
+                  >
+                    Solution
+                  </label>
+                  <input type="text" className={styles.inputField} id="solution" />
+                </div>
+                <div className="form-group mb-6 flex-initial w-32">
                   <label
                     htmlFor="cloud"
                     className="form-label inline-block mb-2 text-gray-700"
@@ -100,12 +110,12 @@ const AddData = () => {
                 </div>
                 <div className="form-group mb-6 flex-1">
                   <label
-                    htmlFor="title"
+                    htmlFor="tittle"
                     className="form-label inline-block mb-2 text-gray-700"
                   >
                     Title
                   </label>
-                  <input type="text" className={styles.inputField} id="title" />
+                  <input type="text" className={styles.inputField} id="tittle" />
                 </div>
               </section>
               <section className="flex gap-4">
@@ -122,9 +132,9 @@ const AddData = () => {
                     id="actionName"
                   />
                 </div>
-                <div className="form-group mb-6 flex-1">
+                <div className="form-group mb-6 flex-initial w-32">
                   <label
-                    htmlFor="environment"
+                    htmlFor="env"
                     className="form-label inline-block mb-2 text-gray-700"
                   >
                     Environment
@@ -132,15 +142,15 @@ const AddData = () => {
                   <input
                     type="text"
                     className={styles.inputField}
-                    id="environment"
+                    id="env"
                   />
                 </div>
-                <div className="form-group mb-6 flex-1">
+                <div className="form-group mb-6 flex-initial w-32">
                   <label
                     htmlFor="envShort"
                     className="form-label inline-block mb-2 text-gray-700"
                   >
-                    Environment Short
+                    Env Short
                   </label>
                   <input
                     type="text"
@@ -148,7 +158,7 @@ const AddData = () => {
                     id="envShort"
                   />
                 </div>
-                <div className="form-group mb-6">
+                <div className="form-group mb-6 flex-initial w-14">
                   <label
                     htmlFor="cost"
                     className="form-label inline-block mb-2 text-gray-700"
@@ -161,7 +171,7 @@ const AddData = () => {
               <section className="flex gap-4">
                 <div className="form-group mb-6 flex-1">
                   <label
-                    htmlFor="description1"
+                    htmlFor="description"
                     className="form-label inline-block mb-2 text-gray-700"
                   >
                     Description 1
@@ -169,7 +179,7 @@ const AddData = () => {
                   <textarea
                     rows={4}
                     className={styles.inputField}
-                    id="description1"
+                    id="description"
                     placeholder="Write a short description..."
                   ></textarea>
                 </div>
@@ -205,15 +215,15 @@ const AddData = () => {
                 </div>
                 <div className="form-group mb-6 flex-1">
                   <label
-                    htmlFor="imageUrl"
+                    htmlFor="diagram"
                     className="form-label inline-block mb-2 text-gray-700"
                   >
-                    Image Url
+                   Diagram
                   </label>
                   <input
                     type="text"
                     className={styles.inputField}
-                    id="imageUrl"
+                    id="diagram"
                   />
                   <section className="flex gap-4">
                   <div className="form-group mb-6">

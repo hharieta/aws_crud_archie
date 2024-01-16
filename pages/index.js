@@ -18,7 +18,7 @@ export default function Home() {
         <div className={styles.description}>
           <p>
             Get started by editing&nbsp;
-            <code className={styles.code}>pages/index.js</code>
+            <code className={styles.code}>Data</code>
           </p>
           <div>
             <a
@@ -63,7 +63,7 @@ export default function Home() {
           <a
             href="createTableDinamic"
             className={styles.card}
-            target="_blank"
+            // target="_blank"
             rel="noopener noreferrer"
           >
             <h2 className={inter.className}>
@@ -77,7 +77,7 @@ export default function Home() {
           <a
             href="adddata"
             className={styles.card}
-            target="_blank"
+            // target="_blank"
             rel="noopener noreferrer"
           >
             <h2 className={inter.className}>
@@ -89,31 +89,31 @@ export default function Home() {
           </a>
 
           <a
-            href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
+            href="viewdata"
             className={styles.card}
-            target="_blank"
+            // target="_blank"
             rel="noopener noreferrer"
           >
             <h2 className={inter.className}>
-              Templates <span>-&gt;</span>
+              View Data <span>-&gt;</span>
             </h2>
             <p className={inter.className}>
-              Discover and deploy boilerplate example Next.js&nbsp;projects.
+              View Data from a DynamoDB&nbsp;table.
             </p>
           </a>
 
           <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
+            href="https://www.cloudbuddies.io/"
             className={styles.card}
             target="_blank"
             rel="noopener noreferrer"
           >
             <h2 className={inter.className}>
-              Deploy <span>-&gt;</span>
+              About Us<span>-&gt;</span>
             </h2>
             <p className={inter.className}>
-              Instantly deploy your Next.js site to a shareable URL
-              with&nbsp;Vercel.
+            Learn how Archie speeds up deployment
+              in your&nbsp;company.
             </p>
           </a>
         </div>

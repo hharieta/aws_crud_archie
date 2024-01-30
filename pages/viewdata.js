@@ -250,24 +250,24 @@ const ViewData = () => {
                       <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
                         {item.id}
                       </td>
-                      <td className={Styles.tableData}>{item.category.slice(0,100)}</td>
-                      <td className={Styles.tableData}>{item.solution.slice(0,100)}</td>
-                      <td className={Styles.tableData}>{item.cloud.slice(0,100)}</td>
-                      <td className={Styles.tableData}>{item.tittle.slice(0,100)}</td>
-                      <td className={Styles.tableData}>{item.actionName.slice(0,100)}</td>
-                      <td className={Styles.tableData}>{item.env.slice(0,100)}</td>
-                      <td className={Styles.tableData}>{item.envShort.slice(0,100)}</td>
-                      <td className={Styles.tableData}>{item.description.slice(0,100)}</td>
-                      <td className={Styles.tableData}>{item.description2.slice(0,100)}</td>
-                      <td className={Styles.tableData}>{item.description3.slice(0,100)}</td>
-                      <td className={Styles.tableData}>{item.cost.slice(0,100)}</td>
-                      <td className={Styles.tableData}>{item.diagram.slice(0,100)}</td>
-                      <td className={Styles.tableData}>{item.type.slice(0,100)}</td>
-                      <td className={Styles.tableData}>{item.upcoming.slice(0,100)}</td>
-                      <td className={Styles.tableData}>{item.requiredValues.slice(0,100)}</td>
-                      <td className={Styles.tableData}>{item.optionalValues.slice(0,100)}</td>
-                      <td className={Styles.tableData}>{item.mainResources.slice(0,100)}</td>
-                      <td className={Styles.tableData}>{item.dataconf.slice(0,100)}</td>
+                      <td className={Styles.tableData}>{item && item.category ? item.category.slice(0,100) : ''}</td>
+                      <td className={Styles.tableData}>{item && item.solution ? item.solution.slice(0,100): ''}</td>
+                      <td className={Styles.tableData}>{item && item.cloud ? item.cloud.slice(0,100) : ''}</td>
+                      <td className={Styles.tableData}>{item && item.tittle ? item.tittle.slice(0,100) : ''}</td>
+                      <td className={Styles.tableData}>{item && item.actionName ? item.actionName.slice(0,100) : ''}</td>
+                      <td className={Styles.tableData}>{item && item.env ? item.env.slice(0,100) : ''}</td>
+                      <td className={Styles.tableData}>{item && item.envShort ? item.envShort.slice(0,100) : ''}</td>
+                      <td className={Styles.tableData}>{item && item.description ? item.description.slice(0,100) : ''}</td>
+                      <td className={Styles.tableData}>{item && item.description2 ? item.description2.slice(0,100) : ''}</td>
+                      <td className={Styles.tableData}>{item && item.description3 ? item.description3.slice(0,100) : ''}</td>
+                      <td className={Styles.tableData}>{item && item.cost ? item.cost.slice(0,100) : ''}</td>
+                      <td className={Styles.tableData}>{item && item.diagram ? item.diagram.slice(0,100) : ''}</td>
+                      <td className={Styles.tableData}>{item && item.type ? item.type.slice(0,100) : ''}</td>
+                      <td className={Styles.tableData}>{item && item.upcoming ? item.upcoming.slice(0,100) : ''}</td>
+                      <td className={Styles.tableData}>{item && item.requiredValues ? item.requiredValues.slice(0,100) : ''}</td>
+                      <td className={Styles.tableData}>{item && item.optionalValues ? item.optionalValues.slice(0,100) : ''}</td>
+                      <td className={Styles.tableData}>{item && item.mainResources ? item.mainResources.slice(0,100) : ''}</td>
+                      <td className={Styles.tableData}>{item && item.dataconf ? item.dataconf.slice(0,100) : ''}</td>
                     </tr>
                   ))}
                 </tbody>

@@ -30,13 +30,13 @@ const AddData = () => {
         envShort: event.target.envShort.value,
         description: event.target.description.value,
         description2: event.target.description2.value,
-        description3: event.target.description3.value,
+        // description3: event.target.description3.value,
         cost: event.target.cost.value,
         diagram: event.target.diagram.value,
         type: event.target.type.value,
         upcoming: event.target.upcoming.value,
-        requiredValues: event.target.requiredValues.value,
-        optionalValues: event.target.optionalValues.value,
+        templateResources: event.target.templateResources.value,
+        // optionalValues: event.target.optionalValues.value,
         // defaultValues: event.target.defaultValues.value,
         mainResources: event.target.mainResources.value,
         // allResources: event.target.allResources.value,
@@ -199,7 +199,7 @@ const AddData = () => {
                 </div>
               </section>
               <section className="flex gap-4">
-                <div className="form-group mb-6 flex-1">
+                {/* <div className="form-group mb-6 flex-1">
                   <label
                     htmlFor="description3"
                     className="form-label inline-block mb-2 text-gray-700"
@@ -212,7 +212,7 @@ const AddData = () => {
                     id="description3"
                     placeholder="Write a short description..."
                   />
-                </div>
+                </div> */}
                 <div className="form-group mb-6 flex-1">
                   <label
                     htmlFor="diagram"
@@ -258,14 +258,14 @@ const AddData = () => {
               <section className="flex gap-4">
                 <div className="form-group mb-6 flex-1">
                   <label
-                    htmlFor="requiredValues"
+                    htmlFor="templateResources"
                     className="form-label inline-block mb-2 text-gray-700"
                   >
-                    Required Values
+                    Template Resources
                   </label>
-                  <textarea type="text" rows={4} className={styles.inputField} id="requiredValues" />
+                  <textarea type="text" rows={4} className={styles.inputField} id="templateResources" />
                 </div>
-                <div className="form-group mb-6 flex-1">
+                {/* <div className="form-group mb-6 flex-1">
                   <label
                     htmlFor="optionalValues"
                     className="form-label inline-block mb-2 text-gray-700"
@@ -278,7 +278,7 @@ const AddData = () => {
                     className={styles.inputField}
                     id="optionalValues"
                   />
-                </div>
+                </div> */}
                 {/* <div className="form-group mb-6 flex-1">
                   <label
                     htmlFor="defaultValues"

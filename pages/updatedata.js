@@ -23,7 +23,7 @@ const UpdateData = () => {
         dateAdded: data.dateAdded, //sortKey (if any)
       },
       UpdateExpression:
-        "SET #category = :val1, #cloud = :val2, #solution = :val3, #tittle = :val4, #actionName = :val5, #env = :val6, #envShort = :val7, #description = :val8, #description2 = :val9, #description3 = :val10, #cost = :val11, #diagram = :val12, #type = :val13, #upcoming = :val14, #requiredValues = :val15, #optionalValues = :val16, #mainResources = :val17, #dataconf = :val18, #dateModified = :val19",
+        "SET #category = :val1, #cloud = :val2, #solution = :val3, #tittle = :val4, #actionName = :val5, #env = :val6, #envShort = :val7, #description = :val8, #description2 = :val9, #cost = :val10, #diagram = :val11, #type = :val12, #upcoming = :val13, #templateResources = :val14, #mainResources = :val15, #dataconf = :val16, #dateModified = :val17",
       ExpressionAttributeValues: {
         ":val1": event.target.category.value,
         ":val2": event.target.cloud.value,
@@ -34,16 +34,14 @@ const UpdateData = () => {
         ":val7": event.target.envShort.value,
         ":val8": event.target.description.value,
         ":val9": event.target.description2.value,
-        ":val10": event.target.description3.value,
-        ":val11": event.target.cost.value,
-        ":val12": event.target.diagram.value,
-        ":val13": event.target.type.value,
-        ":val14": event.target.upcoming.value,
-        ":val15": event.target.requiredValues.value,
-        ":val16": event.target.optionalValues.value,
-        ":val17": event.target.mainResources.value,
-        ":val18": event.target.dataconf.value,
-        ":val19": new Date().toLocaleString(),
+        ":val10": event.target.cost.value,
+        ":val11": event.target.diagram.value,
+        ":val11": event.target.type.value,
+        ":val13": event.target.upcoming.value,
+        ":val14": event.target.templateResources.value,
+        ":val15": event.target.mainResources.value,
+        ":val16": event.target.dataconf.value,
+        ":val17": new Date().toLocaleString(),
       },
       ExpressionAttributeNames: {
         "#category": "category",
@@ -55,13 +53,11 @@ const UpdateData = () => {
         "#envShort": "envShort",
         "#description": "description",
         "#description2": "description2",
-        "#description3": "description3",
         "#cost": "cost",
         "#diagram": "diagram",
         "#type": "type",
         "#upcoming": "upcoming",
-        "#requiredValues": "requiredValues",
-        "#optionalValues": "optionalValues",
+        "#templateResources": "templateResources",
         "#mainResources": "mainResources",
         "#dataconf": "dataconf",
         "#dateModified": "dateModified"
@@ -233,7 +229,7 @@ const UpdateData = () => {
                 </div>
               </section>
               <section className="flex gap-4">
-                <div className="form-group mb-6 flex-1">
+                {/* <div className="form-group mb-6 flex-1">
                   <label
                     htmlFor="description3"
                     className="form-label inline-block mb-2 text-gray-700"
@@ -246,7 +242,7 @@ const UpdateData = () => {
                     id="description3"
                     defaultValue={data.description3}
                   />
-                </div>
+                </div> */}
                 <div className="form-group mb-6 flex-1">
                   <label
                     htmlFor="diagram"
@@ -295,20 +291,20 @@ const UpdateData = () => {
               <section className="flex gap-4">
                 <div className="form-group mb-6 flex-1">
                   <label
-                    htmlFor="requiredValues"
+                    htmlFor="templateResources"
                     className="form-label inline-block mb-2 text-gray-700"
                   >
-                    Required Values
+                    Template Resources
                   </label>
                   <textarea 
                     type="text" 
                     rows={4} 
                     className={styles.inputField} 
-                    id="requiredValues" 
+                    id="templateResources" 
                     defaultValue={data.requiredValues}
                     />
                 </div>
-                <div className="form-group mb-6 flex-1">
+                {/* <div className="form-group mb-6 flex-1">
                   <label
                     htmlFor="optionalValues"
                     className="form-label inline-block mb-2 text-gray-700"
@@ -322,7 +318,7 @@ const UpdateData = () => {
                     id="optionalValues"
                     defaultValue={data.optionalValues}
                   />
-                </div>
+                </div> */}
               </section>
               <section className="flex gap-4">
               <div className="form-group mb-6 flex-1">

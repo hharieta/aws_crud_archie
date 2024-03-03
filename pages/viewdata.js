@@ -171,9 +171,9 @@ const ViewData = () => {
                     <th scope="col" className={Styles.tableHeadings}>
                       Description 2
                     </th>
-                    <th scope="col" className={Styles.tableHeadings}>
+                    {/* <th scope="col" className={Styles.tableHeadings}>
                       Description 3
-                    </th>
+                    </th> */}
                     <th scope="col" className={Styles.tableHeadings}>
                       Cost
                     </th>
@@ -187,11 +187,11 @@ const ViewData = () => {
                       Upcoming
                     </th>
                     <th scope="col" className={Styles.tableHeadings}>
-                      Required Values
+                      Template Resources
                     </th>
-                    <th scope="col" className={Styles.tableHeadings}>
+                    {/* <th scope="col" className={Styles.tableHeadings}>
                       Optional Values
-                    </th>
+                    </th> */}
                     <th scope="col" className={Styles.tableHeadings}>
                       Main Values
                     </th>
@@ -220,13 +220,11 @@ const ViewData = () => {
                               envShort: item.envShort,
                               description: item.description,
                               description2: item.description2,
-                              description3: item.description3,
                               cost: item.cost, 
                               diagram: item.diagram,
                               type: item.type,
                               upcoming: item.upcoming,
-                              requiredValues: item.requiredValues,
-                              optionalValues: item.optionalValues,
+                              templateResources: item.templateResources,
                               mainResources: item.mainResources,
                               dataconf: item.dataconf
                             },
@@ -259,13 +257,13 @@ const ViewData = () => {
                       <td className={Styles.tableData}>{item && item.envShort ? item.envShort.slice(0,100) : ''}</td>
                       <td className={Styles.tableData}>{item && item.description ? item.description.slice(0,100) : ''}</td>
                       <td className={Styles.tableData}>{item && item.description2 ? item.description2.slice(0,100) : ''}</td>
-                      <td className={Styles.tableData}>{item && item.description3 ? item.description3.slice(0,100) : ''}</td>
+                      {/* <td className={Styles.tableData}>{item && item.description3 ? item.description3.slice(0,100) : ''}</td> */}
                       <td className={Styles.tableData}>{item && item.cost ? item.cost.slice(0,100) : ''}</td>
                       <td className={Styles.tableData}>{item && item.diagram ? item.diagram.slice(0,100) : ''}</td>
                       <td className={Styles.tableData}>{item && item.type ? item.type.slice(0,100) : ''}</td>
                       <td className={Styles.tableData}>{item && item.upcoming ? item.upcoming.slice(0,100) : ''}</td>
-                      <td className={Styles.tableData}>{item && item.requiredValues ? item.requiredValues.slice(0,100) : ''}</td>
-                      <td className={Styles.tableData}>{item && item.optionalValues ? item.optionalValues.slice(0,100) : ''}</td>
+                      <td className={Styles.tableData}>{item && item.templateResources ? item.templateResources.slice(0,100) : ''}</td>
+                      {/* <td className={Styles.tableData}>{item && item.optionalValues ? item.optionalValues.slice(0,100) : ''}</td> */}
                       <td className={Styles.tableData}>{item && item.mainResources ? item.mainResources.slice(0,100) : ''}</td>
                       <td className={Styles.tableData}>{item && item.dataconf ? item.dataconf.slice(0,100) : ''}</td>
                     </tr>

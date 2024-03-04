@@ -36,7 +36,7 @@ const UpdateData = () => {
         ":val9": event.target.description2.value,
         ":val10": event.target.cost.value,
         ":val11": event.target.diagram.value,
-        ":val11": event.target.type.value,
+        ":val12": event.target.type.value,
         ":val13": event.target.upcoming.value,
         ":val14": event.target.templateResources.value,
         ":val15": event.target.mainResources.value,
@@ -286,7 +286,7 @@ const UpdateData = () => {
                   />
                 </div>
                 </section>
-                </div>
+              </div>
               </section>
               <section className="flex gap-4">
                 <div className="form-group mb-6 flex-1">
@@ -301,7 +301,7 @@ const UpdateData = () => {
                     rows={4} 
                     className={styles.inputField} 
                     id="templateResources" 
-                    defaultValue={data.requiredValues}
+                    defaultValue={data.templateResources}
                     />
                 </div>
                 {/* <div className="form-group mb-6 flex-1">

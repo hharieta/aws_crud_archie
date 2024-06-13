@@ -40,7 +40,8 @@ const AddData = () => {
         // defaultValues: event.target.defaultValues.value,
         mainResources: event.target.mainResources.value,
         // allResources: event.target.allResources.value,
-        dataconf: event.target.dataconf.value
+        dataconf: event.target.dataconf.value,
+        configdata: event.target.configdata.value
       },
     };
 
@@ -334,6 +335,22 @@ const AddData = () => {
                     className={styles.inputField}
                     id="dataconf"
                     placeholder="Dataconf JSON style..."
+                  />
+                </div>
+              </section>
+              <section className="flex gap-4">
+                <div className="form-group mb-6 flex-1">
+                  <label
+                    htmlFor="jsondata"
+                    className="form-label inline-block mb-2 text-gray-700"
+                  >
+                    Config Data
+                  </label>
+                  <textarea
+                    rows={12}
+                    className={styles.inputField}
+                    id="configdata"
+                    placeholder="Configuration Data JSON string..."
                   />
                 </div>
               </section>

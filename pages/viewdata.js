@@ -198,6 +198,9 @@ const ViewData = () => {
                     <th scope="col" className={Styles.tableHeadings}>
                       Dataconfig
                     </th>
+                    <th scope="col" className={Styles.tableHeadings}>
+                      Config Data
+                    </th>
                   </tr>
                 </thead>
                 <tbody>
@@ -226,7 +229,8 @@ const ViewData = () => {
                               upcoming: item.upcoming,
                               templateResources: item.templateResources,
                               mainResources: item.mainResources,
-                              dataconf: item.dataconf
+                              dataconf: item.dataconf,
+                              configdata: item.configdata
                             },
                           }}
                         >
@@ -266,6 +270,7 @@ const ViewData = () => {
                       {/* <td className={Styles.tableData}>{item && item.optionalValues ? item.optionalValues.slice(0,100) : ''}</td> */}
                       <td className={Styles.tableData}>{item && item.mainResources ? item.mainResources.slice(0,100) : ''}</td>
                       <td className={Styles.tableData}>{item && item.dataconf ? item.dataconf.slice(0,100) : ''}</td>
+                      <td className={Styles.tableData}>{item && item.configdata ? item.configdata.slice(0,100) : ''}</td>
                     </tr>
                   ))}
                 </tbody>

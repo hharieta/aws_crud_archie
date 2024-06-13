@@ -48,15 +48,6 @@ export default function Home() {
             height={120}
             priority
           />
-          {/* <div className={styles.thirteen}>
-            <Image
-              src="/archie_logo.png"
-              alt="13"
-              width={40}
-              height={31}
-              priority
-            />
-          </div> */}
         </div>
 
         <div className={styles.grid}>

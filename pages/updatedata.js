@@ -23,7 +23,7 @@ const UpdateData = () => {
         dateAdded: data.dateAdded, //sortKey (if any)
       },
       UpdateExpression:
-        "SET #category = :val1, #cloud = :val2, #solution = :val3, #tittle = :val4, #actionName = :val5, #env = :val6, #envShort = :val7, #description = :val8, #description2 = :val9, #cost = :val10, #diagram = :val11, #type = :val12, #upcoming = :val13, #templateResources = :val14, #mainResources = :val15, #dataconf = :val16, #dateModified = :val17",
+        "SET #category = :val1, #cloud = :val2, #solution = :val3, #tittle = :val4, #actionName = :val5, #env = :val6, #envShort = :val7, #description = :val8, #description2 = :val9, #cost = :val10, #diagram = :val11, #type = :val12, #upcoming = :val13, #templateResources = :val14, #mainResources = :val15, #dataconf = :val16, #dateModified = :val17, #configdata = :val18",
       ExpressionAttributeValues: {
         ":val1": event.target.category.value,
         ":val2": event.target.cloud.value,
@@ -42,6 +42,7 @@ const UpdateData = () => {
         ":val15": event.target.mainResources.value,
         ":val16": event.target.dataconf.value,
         ":val17": new Date().toLocaleString(),
+        ":val18": event.target.configdata.value
       },
       ExpressionAttributeNames: {
         "#category": "category",
@@ -60,7 +61,8 @@ const UpdateData = () => {
         "#templateResources": "templateResources",
         "#mainResources": "mainResources",
         "#dataconf": "dataconf",
-        "#dateModified": "dateModified"
+        "#dateModified": "dateModified",
+        "#configdata": "configdata"
       }
     };
 
@@ -349,6 +351,22 @@ const UpdateData = () => {
                     className={styles.inputField}
                     id="dataconf"
                     defaultValue={data.dataconf}
+                  />
+                </div>
+              </section>
+              <section className="flex gap-4">
+                <div className="form-group mb-6 flex-1">
+                  <label
+                    htmlFor="jsondata"
+                    className="form-label inline-block mb-2 text-gray-700"
+                  >
+                    Config Data
+                  </label>
+                  <textarea
+                    rows={12}
+                    className={styles.inputField}
+                    id="configdata"
+                    defaultValue={data.configdata}
                   />
                 </div>
               </section>

@@ -41,7 +41,8 @@ const AddData = () => {
         mainResources: event.target.mainResources.value,
         // allResources: event.target.allResources.value,
         dataconf: event.target.dataconf.value,
-        configdata: event.target.configdata.value
+        configdata: event.target.configdata.value,
+        customdata: event.target.customdata.value,
       },
     };
 
@@ -322,6 +323,17 @@ const AddData = () => {
                   />
                 </div> */}
                 </section>
+                <div className="form-group mt-2 flex-1">
+                  <label htmlFor="customdata" className="form-label inline-block mb-0 text-gray-700">
+                    Custom Data
+                  </label>
+                  <textarea
+                    rows={9}
+                    className={styles.inputField}
+                    id="customdata"
+                    placeholder="Custom Data JSON string..."
+                  />
+                </div>
                 </div>
                 <div className="form-group mb-6 flex-1">
                   <label

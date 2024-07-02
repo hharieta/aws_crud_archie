@@ -23,7 +23,7 @@ const UpdateData = () => {
         dateAdded: data.dateAdded, //sortKey (if any)
       },
       UpdateExpression:
-        "SET #category = :val1, #cloud = :val2, #solution = :val3, #tittle = :val4, #actionName = :val5, #env = :val6, #envShort = :val7, #description = :val8, #description2 = :val9, #cost = :val10, #diagram = :val11, #type = :val12, #upcoming = :val13, #templateResources = :val14, #mainResources = :val15, #dataconf = :val16, #dateModified = :val17, #configdata = :val18",
+        "SET #category = :val1, #cloud = :val2, #solution = :val3, #tittle = :val4, #actionName = :val5, #env = :val6, #envShort = :val7, #description = :val8, #description2 = :val9, #cost = :val10, #diagram = :val11, #type = :val12, #upcoming = :val13, #templateResources = :val14, #mainResources = :val15, #dataconf = :val16, #dateModified = :val17, #configdata = :val18, #customdata = :val19",
       ExpressionAttributeValues: {
         ":val1": event.target.category.value,
         ":val2": event.target.cloud.value,
@@ -42,7 +42,8 @@ const UpdateData = () => {
         ":val15": event.target.mainResources.value,
         ":val16": event.target.dataconf.value,
         ":val17": new Date().toLocaleString(),
-        ":val18": event.target.configdata.value
+        ":val18": event.target.configdata.value,
+        ":val19": event.target.customdata.value
       },
       ExpressionAttributeNames: {
         "#category": "category",
@@ -62,7 +63,8 @@ const UpdateData = () => {
         "#mainResources": "mainResources",
         "#dataconf": "dataconf",
         "#dateModified": "dateModified",
-        "#configdata": "configdata"
+        "#configdata": "configdata",
+        "#customdata": "customdata"
       }
     };
 
@@ -338,6 +340,17 @@ const UpdateData = () => {
                   />
                   <section className="flex gap-4">
                 </section>
+                <div className="form-group mt-2 flex-1">
+                  <label htmlFor="customdata" className="form-label inline-block mb-0 text-gray-700">
+                    Custom Data
+                  </label>
+                  <textarea
+                    rows={9}
+                    className={styles.inputField}
+                    id="customdata"
+                    defaultValue={data.customdata}
+                  />
+                </div>
                 </div>
                 <div className="form-group mb-6 flex-1">
                   <label
